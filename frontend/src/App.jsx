@@ -1,14 +1,13 @@
 import Login from "./pages/login/Login";
-/* import Signup from "./pages/signup/Signup";
-import Home from "./pages/home/Home";
- */
+import Signup from "./pages/signup/Signup";
+//import Home from "./pages/home/Home";
+
 function App() {
   return (
-    <div className="p-4 h-sreen items-center justify-center">
-      <Login />
-      {/* <Home />
+    <div className="p-4 h-sreen flex items-center justify-center bg-linear-to-r/hsl from-sky-800 to-teal-950">
+      {/*       <Login />
+       */}{" "}
       <Signup />
-    */}
     </div>
   );
 }
