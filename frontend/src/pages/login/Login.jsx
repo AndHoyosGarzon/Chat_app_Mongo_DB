@@ -44,7 +44,7 @@ const Login = () => {
           </div>
 
           <div className="mt-2">
-            <button className="btn btn-block bg-rose-700 text-white btn-sm mt-2">
+            <button className="btn btn-block bg-rose-700 hover:bg-rose-800 transition-all duration-300 text-white btn-sm mt-2">
               Login
             </button>
           </div>
