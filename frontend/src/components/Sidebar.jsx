@@ -14,4 +14,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-/**w-full h-auto py-10 px-8 rounded-lg shadow-xl text-gray-300 bg-gray-500/15 */
