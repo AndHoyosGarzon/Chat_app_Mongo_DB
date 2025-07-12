@@ -77,10 +77,13 @@ export const loginUser = async (req, res) => {
     generateToken(user._id, res);
 
     return res.status(200).json({
-      _id: user._id,
-      fullName: user.fullName,
-      username: user.username,
-      gender: user.gender,
+      message: "Login successful",
+      data: {
+        _id: user._id,
+        fullName: user.fullName,
+        username: user.username,
+        gender: user.gender,
+      },
     });
   } catch (error) {
     console.log("Error in loginUser", error.message);

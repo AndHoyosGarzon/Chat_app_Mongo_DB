@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router";
 import useSignup from "../../hooks/useSignup.js";
-import toast from "react-hot-toast";
 
 const Signup = () => {
   //hooks
@@ -160,8 +159,15 @@ const Signup = () => {
           </div>
 
           <div className="mt-2">
-            <button className="btn btn-block bg-rose-700 hover:bg-rose-800 transition-all duration-300 text-white btn-sm mt-2">
-              Create Account
+            <button
+              disabled={loading}
+              className="btn btn-block bg-rose-700 hover:bg-rose-800 transition-all duration-300 text-white btn-sm mt-2"
+            >
+              {loading ? (
+                <span className="loading loading-spinner loading-xs"></span>
+              ) : (
+                "Create Account"
+              )}
             </button>
           </div>
         </form>

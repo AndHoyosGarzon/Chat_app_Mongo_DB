@@ -1,5 +1,5 @@
 import { useState } from "react";
-import handleInputErrors from "../libs/Errors.js";
+import { handleInputErrors } from "../libs/Errors.js";
 import { toast } from "react-hot-toast";
 import { useAuthContext } from "../context/AuthContext.jsx";
 
@@ -7,7 +7,7 @@ const useSignup = () => {
   const [loading, setLoading] = useState(false);
 
   //context
-  const { authUser, setAuthUser } = useAuthContext();
+  const { setAuthUser } = useAuthContext();
 
   const signup = async ({
     fullName,

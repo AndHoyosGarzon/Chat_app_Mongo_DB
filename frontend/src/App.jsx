@@ -9,12 +9,13 @@ function App() {
   //context
   const { authUser } = useAuthContext();
 
-  console.log(authUser);
-
   return (
     <div className="p-4 h-sreen flex items-center justify-center bg-linear-to-r/hsl from-sky-800 to-teal-950">
       <Routes>
-        <Route path="/" element={authUser ? <Home /> : <Navigate to="/login" />} />
+        <Route
+          path="/"
+          element={authUser ? <Home /> : <Navigate to="/login" />}
+        />
         <Route
           path="/login"
           element={authUser ? <Navigate to="/" /> : <Login />}
@@ -24,7 +25,7 @@ function App() {
           element={authUser ? <Navigate to="/" /> : <Signup />}
         />
       </Routes>
-      <Toaster position="top-center" />
+      <Toaster position="top-left" />
     </div>
   );
 }
