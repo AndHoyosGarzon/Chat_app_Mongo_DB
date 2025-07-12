@@ -40,11 +40,14 @@ export const signupUser = async (req, res) => {
     generateToken(saveUser._id, res);
 
     return res.status(201).json({
-      _id: newUser._id,
-      fullName: newUser.fullName,
-      username: newUser.username,
-      gender: newUser.gender,
-      profilePic: newUser.profilePic,
+      message: "User created successfully",
+      data: {
+        _id: newUser._id,
+        fullName: newUser.fullName,
+        username: newUser.username,
+        gender: newUser.gender,
+        profilePic: newUser.profilePic,
+      },
     });
   } catch (error) {
     console.log("Error in signupUser", error.message);
