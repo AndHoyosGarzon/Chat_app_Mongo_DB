@@ -18,7 +18,7 @@ const useLogin = () => {
 
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:3001/api/auth/login", {
+      const res = await fetch("/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -35,6 +35,7 @@ const useLogin = () => {
       localStorage.setItem("chat-user", JSON.stringify(data.data));
 
       setAuthUser(data.data);
+
       toast.success(data.message);
     } catch (error) {
       toast.error(error.message);

@@ -20,8 +20,10 @@ export const signupUser = async (req, res) => {
 
     const hashedPassword = await hashPassword(password);
 
-    const boyPic = "../img/man.png";
-    const girlPic = "../img/woman.png";
+    const boyPic =
+      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+    const girlPic =
+      "https://images.unsplash.com/photo-1664510588112-b6aab9016be1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
     const newUser = await User({
       fullName,
@@ -83,6 +85,7 @@ export const loginUser = async (req, res) => {
         fullName: user.fullName,
         username: user.username,
         gender: user.gender,
+        profilePic: user.profilePic,
       },
     });
   } catch (error) {
