@@ -1,5 +1,6 @@
 import { useAuthContext } from "../context/AuthContext";
 import useConversation from "../context/zustandStore/useConversation";
+import { extractTime } from "../libs/extracTime";
 
 const Message = ({ message }) => {
   //context react
@@ -16,6 +17,8 @@ const Message = ({ message }) => {
     : selectedConversation?.profilePic;
   //bg color bubble
   const bubbleBgColor = fromMe ? "bg-gray-700/60" : "bg-blue-700";
+  // formatter time
+  const formatedTime = extractTime(message.createdAt);
 
   return (
     <div className={`chat ${chatClassName}`}>
@@ -26,17 +29,14 @@ const Message = ({ message }) => {
       </div>
 
       <div
-        className={`chat-bubble ${bubbleBgColor} text-sm font-bold text-gray-300`}
+        className={`chat-bubble ${bubbleBgColor} text-sm font-bold text-gray-300 pb-2`}
       >
         {message.message}
       </div>
       <div
         className={`chat-footer opacity-20 text-xs font-semibold flex gap-1 items-center`}
       >
-        12:42
-        {/* 
-        TODO: Agregar la hora de envio del mensaje
-        */}
+        {formatedTime}
       </div>
     </div>
   );
