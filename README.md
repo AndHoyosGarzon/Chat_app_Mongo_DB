@@ -8,7 +8,7 @@ This project has a **fully functional chat application** with complete authentic
 
 ## 🛠️ Technologies Used
 
-### Backend
+### Backend--
 
 - **Node.js** - Runtime environment
 - **Express.js** - Web framework
