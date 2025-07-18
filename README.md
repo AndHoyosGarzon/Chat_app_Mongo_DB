@@ -337,7 +337,7 @@ npm run lint      # Run ESLint
 ```env
 NODE_ENV=production
 PORT=3001
-MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/chat_app
+MONGO_URI=mongo-uri
 JWT_SECRET=your_production_jwt_secret
 ```
 
