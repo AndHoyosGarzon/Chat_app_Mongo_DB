@@ -1,8 +1,14 @@
+import { useAuthContext } from "../context/AuthContext";
+
 const NoChatSelected = () => {
+
+  //import useAuthContext
+  const {authUser} = useAuthContext()
+
   return (
     <div className="flex items-center justify-center w-full h-full">
       <div className="px-4 text-center w-auto h-auto text-gray-200 font-semibold flex flex-col items-center gap-2">
-        <p>Welcome John Doe 👋 </p>
+        <p>Welcome {authUser.fullName} 👋 </p>
         <p className="mb-4">Select a chat or start a new conversation</p>
         <svg
           fill="none"

@@ -10,7 +10,7 @@ import userRoutes from "./routes/users.routes.js";
 //import dev tools
 import morgan from "morgan";
 import { config } from "dotenv";
-import { app, server } from "./libs/socket.js";
+import { app, server} from "./libs/socket.js";
 
 config();
 

@@ -13,6 +13,10 @@ const server = http.createServer(app);
 
 const userSocketMap = {}
 
+//export function to get user socket
+export const getReceiverSocketId = (receiverId) => {
+    return userSocketMap[receiverId]
+}
 
 // 6 create socket
 const io = new Server(server, {
@@ -30,24 +34,23 @@ io.on("connection", (socket) => {
      const userId = socket.handshake.query.userId
      if(!userId != "undefined") userSocketMap[userId] = socket.id
 
+     console.log('object userSocketMap',userSocketMap)
 
      //emit online users
      io.emit("getOnlineUsers", Object.keys(userSocketMap))
 
     socket.on("disconnect", () => {
-        console.log(`User disconnected, your ID socket is ${socket.id}`)
-    })
-})
+        console.log(`User disconnected, your ID socket is ${socket.id}`)        
+        //when user disconnect, remove prop user from userSocketmap
+        delete userSocketMap[userId]
 
+        //emit online users
+        io.emit("getOnlineUsers", Object.keys(userSocketMap))
+    }
 
+)})
 
-
-
-
-
-
-
-
+ 
 //export app, io, server
 export {app, io, server};
 

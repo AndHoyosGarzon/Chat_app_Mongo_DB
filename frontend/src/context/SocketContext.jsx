@@ -1,9 +1,14 @@
-import { createContext, useEffect, useState } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 import { useAuthContext } from "./AuthContext"
 import io from "socket.io-client"
 
 //create socket context provider 
-export const SocketContext = createContext()
+const SocketContext = createContext()
+
+export const useSocketContext = () => {
+    return useContext(SocketContext)
+}
+
 
 export const SocketProvider = ({children}) => {
 
@@ -23,6 +28,12 @@ export const SocketProvider = ({children}) => {
             })
             //save socket in state
             setSocket(socket)
+             
+            //get online users 
+            socket.on("getOnlineUsers", (users) => {
+                //save online users in state
+                setOnlineUsers(users)
+            })
 
             //cleaning up socket
             return () => socket.close()
@@ -32,7 +43,7 @@ export const SocketProvider = ({children}) => {
                 setSocket(null)
             }
         }
-    },[])
+    },[authUser])
 
 
     return (
