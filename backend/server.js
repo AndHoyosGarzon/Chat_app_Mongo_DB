@@ -10,10 +10,9 @@ import userRoutes from "./routes/users.routes.js";
 //import dev tools
 import morgan from "morgan";
 import { config } from "dotenv";
+import { app, server } from "./libs/socket.js";
 
 config();
-
-const app = express();
 
 // Middleware
 app.use(morgan("dev"));
@@ -35,7 +34,7 @@ app.use("/api/messages", messageRoutes);
 app.use("/api/users", userRoutes);
 
 const PORT = process.env.PORT || 3002;
-app.listen(PORT, async () => {
+server.listen(PORT, async () => {
   console.log(`Server running on port http://localhost:${PORT}`);
   await connectMongoDB();
 });

@@ -61,8 +61,7 @@ export const loginUser = async (req, res) => {
   try {
     const { username, password } = req.body;
 
-    console.log(username, password);
-
+    //validate fields
     if (!username || !password) {
       return res.status(400).json({ error: "All fields are required" });
     }
